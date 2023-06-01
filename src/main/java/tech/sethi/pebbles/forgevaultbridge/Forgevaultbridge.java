@@ -97,7 +97,8 @@ public class Forgevaultbridge {
         return chat;
     }
 
-    public String getPlayerName(UUID uuid) {
+    public static String getPlayerName(UUID uuid) {
         return Bukkit.getOfflinePlayer(uuid).getName();
     }
+
 }

@@ -12,6 +12,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.slf4j.Logger;
 
+import java.util.UUID;
+
 @Mod(Forgevaultbridge.MODID)
 public class Forgevaultbridge {
     public static final String MODID = "forgevaultbridge";
@@ -79,5 +81,23 @@ public class Forgevaultbridge {
         }
         chat = rsp.getProvider();
         LOGGER.info("Vault Chat successfully hooked up");
+    }
+
+
+    // getter methods for economy, permission, and chat
+    public static Economy getEconomy() {
+        return economy;
+    }
+
+    public static Permission getPermission() {
+        return permission;
+    }
+
+    public static Chat getChat() {
+        return chat;
+    }
+
+    public String getPlayerName(UUID uuid) {
+        return Bukkit.getOfflinePlayer(uuid).getName();
     }
 }

@@ -35,8 +35,6 @@ public class Forgevaultbridge {
         LOGGER.info("Server starting");
         LOGGER.info("Initializing Pebble's Forge Vault Bridge");
         setupEconomy();
-        setupPermissions();
-        setupChat();
     }
 
 
@@ -55,47 +53,10 @@ public class Forgevaultbridge {
         LOGGER.info("Economy: " + economy.getName());
     }
 
-    private static void setupPermissions() {
-        if (Bukkit.getServer().getPluginManager().getPlugin("Vault") == null) {
-            LOGGER.info("Cannot find Vault!");
-            return;
-        }
-        RegisteredServiceProvider<Permission> rsp = Bukkit.getServer().getServicesManager().getRegistration(Permission.class);
-        if (rsp == null) {
-            LOGGER.info("Registered Service Provider for Permission.class not found");
-            return;
-        }
-        permission = rsp.getProvider();
-        LOGGER.info("Permission successfully hooked up");
-    }
-
-    private static void setupChat() {
-        if (Bukkit.getServer().getPluginManager().getPlugin("Vault") == null) {
-            LOGGER.info("Cannot find Vault!");
-            return;
-        }
-        RegisteredServiceProvider<Chat> rsp = Bukkit.getServer().getServicesManager().getRegistration(Chat.class);
-        if (rsp == null) {
-            LOGGER.info("Registered Service Provider for Chat.class not found");
-            return;
-        }
-        chat = rsp.getProvider();
-        LOGGER.info("Vault Chat successfully hooked up");
-    }
-
-
-    // getter methods for economy, permission, and chat
     public static Economy getEconomy() {
         return economy;
     }
 
-    public static Permission getPermission() {
-        return permission;
-    }
-
-    public static Chat getChat() {
-        return chat;
-    }
 
     public static String getPlayerName(UUID uuid) {
         return Bukkit.getOfflinePlayer(uuid).getName();

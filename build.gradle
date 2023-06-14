@@ -131,6 +131,7 @@ jar {
 }
 
 shadowJar {
+    exclude("net/milkbowl/vault/chat/**", "net/milkbowl/vault/permission/**")
     archiveClassifier = ''
     configurations = [project.configurations.shade]
     finalizedBy 'reobfShadowJar'
